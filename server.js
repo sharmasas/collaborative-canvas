@@ -1,34 +1,32 @@
-// server.js
-// where your node app starts
+// requires package express
+var express = require("express");
+var app = express();
+// listening on port 3000
+var server = app.listen(3000);
 
-// we've started you off with Express (https://expressjs.com/)
-// but feel free to use whatever libraries or frameworks you'd like through `package.json`.
-const express = require("express");
-const app = express();
-
-// our default array of dreams
-const dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-];
-
-// make all the files in 'public' available
-// https://expressjs.com/en/starter/static-files.html
+// hosting static files in public directory
 app.use(express.static("public"));
 
-// https://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
-});
+console.log("server is running");
 
-// send the default array of dreams to the webpage
-app.get("/dreams", (request, response) => {
-  // express helps us take JS objects and send them as JSON
-  response.json(dreams);
-});
+// require socket.io
+var socket = require("socket.io");
+// calling function socket with variable server
+var io = socket(server);
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
+// event 1: if I have a new connection
+io.sockets.on("connection", newConnection);
+
+function newConnection(socket) {
+  console.log("new connection: " + socket.id);
+
+  socket.on("mouse", mouseMsg);
+
+  function mouseMsg(data) {
+    //returns to specific socket
+    socket.broadcast.emit("mouse", data);
+    //returns to all sockets including your own
+    // io.sockets.emit('mouse', data);
+    console.log(data);
+  }
+}
