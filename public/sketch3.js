@@ -1,4 +1,4 @@
-var socket;
+var socket = io();
 let x, y, px, py;
 
 function setup() {
@@ -7,7 +7,7 @@ function setup() {
   colorMode(HSB);
 
   // connect client to server
-  socket = io.connect("http://localhost:3000");
+  //socket = io.connect('something something 3000');
   socket.on("mouse", newDrawing);
 }
 

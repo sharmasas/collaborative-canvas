@@ -1,8 +1,9 @@
 // requires package express
 var express = require("express");
 var app = express();
-// listening on port 3000
-var server = app.listen(3000);
+// listening on port set by app
+const port = process.env.PORT;
+var server = app.listen(port);
 
 // hosting static files in public directory
 app.use(express.static("public"));
