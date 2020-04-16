@@ -6,8 +6,8 @@ function setup() {
   background(0);
   colorMode(HSB);
 
-  // connect client to server
-  //socket = io.connect('something something 3000');
+  // connect client to local server at port 3000
+  //socket = io.connect('http://localhost:3000');
   socket.on("mouse", newDrawing);
 }
 
