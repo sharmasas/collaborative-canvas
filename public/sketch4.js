@@ -43,20 +43,6 @@ function newDrawing(data) {
   line(width - data.x, height - data.y, width - data.px, height - data.py);
 }
 
-// function mouseDragged() {
-//   console.log(
-//     "Sending: " + mouseX + "," + mouseY + "," + pmouseX + "," + pmouseY
-//   );
-
-//   var data = {
-//     x: x,
-//     y: y,
-//     px: px,
-//     py: py
-//   };
-
-//   socket.emit("mouse", data);
-// }
 
 function draw() {
   fill(0,0,0);
@@ -79,10 +65,10 @@ function draw() {
     x[i] += vx[i];  
     y[i] += vy[i];  
     
-    //var sokudo = dist(0,0,vx[i],vy[i]); 
-    var r = map( 5, 0, 5, 0, 255); 
-    var g = map( 20, 0, 5, 64, 255);
-    var b = map( 30, 0, 5, 128, 255);
+    var blend = dist(0,0,vx[i],vy[i]); 
+    var r = map( blend, 0, 5, 0, 255); 
+    var g = map( blend, 0, 5, 64, 255);
+    var b = map( blend, 0, 5, 128, 255);
     fill(r, g, b, 32);
     ellipse(x[i],y[i],radius,radius);
   }
