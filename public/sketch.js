@@ -8,8 +8,8 @@ function setup() {
   background(0);
   colorMode(HSB);
   
-  //alternate: connect client to local server at port 3000
-  //socket = io.connect('http://localhost:3000');
+  //refreshSession if new session started/refresh page pressed
+  refreshSession();
   
   // socket is listening for two events: new drawing and clear canvas
   socket.on("mouse", newDrawing);
