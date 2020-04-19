@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+canvas {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  background-color: transparent;
+  color: #ababab;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+button:hover {
+	color:white;
+}
+
+button:focus {
+  outline: none;
+}

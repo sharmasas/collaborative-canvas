@@ -4,7 +4,7 @@ let x, y, px, py;
 
 function setup() {
   //canvas setup
-  createCanvas(500, 500);
+  createCanvas(1000, 400);
   background(0);
   colorMode(HSB);
   
@@ -17,7 +17,7 @@ function setup() {
 
   // create a refresh button
   var button = createButton('refresh session');
-  button.position(220, 500);
+  //button.position(220, 500);
   button.mousePressed(refreshSession); 
 }
 
