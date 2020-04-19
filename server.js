@@ -30,11 +30,11 @@ function newConnection(socket) {
     //io.sockets.emit('mouse', data);
     console.log(data);
   }
-}
 
-io.sockets.on("refresh", refreshSession);
-
-function refreshSession(refreshdata) {
+  socket.on("refresh", refreshCanvas);
+  function refreshCanvas(refreshdata) {
     socket.broadcast.emit("refresh", refreshdata);
+  }
+  
 }
 

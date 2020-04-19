@@ -9,6 +9,7 @@ function setup() {
   // connect client to local server at port 3000
   //socket = io.connect('http://localhost:3000');
   socket.on("mouse", newDrawing);
+  socket.on("refresh", wipe);
 
   var button = createButton('refresh session');
   button.position(220, 500);
@@ -24,7 +25,7 @@ function refreshSession() {
 }
 
 function wipe(refreshdata) {
-  background(refreshdata.background);
+  background(0);
 }
 
 function newDrawing(data) {
