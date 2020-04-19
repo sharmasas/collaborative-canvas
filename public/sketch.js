@@ -1,36 +1,46 @@
+// variable definition (socket connection and data placeholders)
 var socket = io();
 let x, y, px, py;
 
 function setup() {
+  //canvas setup
   createCanvas(500, 500);
   background(0);
   colorMode(HSB);
   
-  // connect client to local server at port 3000
+  //alternate: connect client to local server at port 3000
   //socket = io.connect('http://localhost:3000');
+  
+  // socket is listening for two events: new drawing and clear canvas
   socket.on("mouse", newDrawing);
-  socket.on("refresh", wipe);
+  socket.on("refresh", wipeCanvas);
 
+  // create a refresh button
   var button = createButton('refresh session');
   button.position(220, 500);
   button.mousePressed(refreshSession); 
 }
 
 function refreshSession() {
-  background(0);
+  // refresh function emits data to server to reset canvas
   var refreshdata = {
-    background: 0
+    bgd: 0
   };
+  //
   socket.emit("refresh", refreshdata);
 }
 
-function wipe(refreshdata) {
-  background(0);
+function wipeCanvas(refreshdata) {
+  // wipe canvas function actually resets the canvas
+  background(refreshdata.bgd);
 }
 
 function newDrawing(data) {
+  // newDrawing outputs the lines drawn by others in real time, via data emmitted
   stroke(frameCount % 360, 75, 100);
   strokeWeight(3);
+  
+  // lines to be emmitted based on data shared
   line(data.x, data.y, data.px, data.py);
   line(width - data.x, data.y, width - data.px, data.py);
   line(data.x, height - data.y, data.px, height - data.py);
@@ -38,33 +48,29 @@ function newDrawing(data) {
 }
 
 function mouseDragged() {
-  console.log(
-    "Sending: " + mouseX + "," + mouseY + "," + pmouseX + "," + pmouseY
-  );
 
+  x = mouseX;
+  y = mouseY;
+  px = pmouseX;
+  py = pmouseY;
+  
   var data = {
     x: x,
     y: y,
     px: px,
     py: py
   };
-
+  
+  line(x, y, px, py);
+  line(width - x, y, width - px, py);
+  line(x, height - y, px, height - py);
+  line(width - x, height - y, width - px, height - py);
+  
   socket.emit("mouse", data);
 }
 
 function draw() {
+  // framecount is only a property of draw
   stroke(frameCount % 360, 75, 100);
-  strokeWeight(5);
-
-  x = mouseX;
-  y = mouseY;
-  px = pmouseX;
-  py = pmouseY;
-
-  if (mouseIsPressed) {
-    line(x, y, px, py);
-    line(width - x, y, width - px, py);
-    line(x, height - y, px, height - py);
-    line(width - x, height - y, width - px, height - py);
-  }
+  strokeWeight(6);
 }

@@ -33,7 +33,7 @@ function newConnection(socket) {
 
   socket.on("refresh", refreshCanvas);
   function refreshCanvas(refreshdata) {
-    socket.broadcast.emit("refresh", refreshdata);
+    io.sockets.emit("refresh", refreshdata);
   }
   
 }
