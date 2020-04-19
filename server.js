@@ -31,9 +31,3 @@ function newConnection(socket) {
   }
 }
 
-// event 2: if socket is disconnected
-io.sockets.on('disconnect', reconnect);
-
-function reconnect() {
-  socket.reconnect();
-}
