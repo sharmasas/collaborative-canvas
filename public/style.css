@@ -1,12 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: black;
-}
-canvas {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  background: #222222;
 }
 
 button {
@@ -17,6 +12,7 @@ button {
   display: block;
   font-size: 18px;
   font-weight: 200;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -25,4 +21,10 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+
+canvas {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

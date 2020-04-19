@@ -17,7 +17,6 @@ function setup() {
 
   // create a refresh button
   var button = createButton('refresh session');
-  //button.position(220, 500);
   button.mousePressed(refreshSession); 
 }
 
