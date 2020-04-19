@@ -17,11 +17,9 @@ var io = socket(server);
 
 // event 1: if I have a new connection
 io.sockets.on("connection", newConnection);
-io.sockets.on("disconnect", 
 
 function newConnection(socket) {
   console.log("new connection: " + socket.id);
-
   socket.on("mouse", mouseMsg);
 
   function mouseMsg(data) {
@@ -31,4 +29,13 @@ function newConnection(socket) {
     //io.sockets.emit('mouse', data);
     console.log(data);
   }
+}
+
+// event 2: if session has been terminated
+io.sockets.on("reset", terminate);
+
+function terminate(socket) {
+  socket.close();
+  var io = socket(server);
+  io.sockets.on("connection", newConnection);
 }

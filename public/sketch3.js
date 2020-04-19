@@ -12,6 +12,8 @@ function setup() {
 function refreshSession(){
   background(0);
   colorMode(HSB);
+  var reset = 'reset';
+  socket.emit('reset', reset);
   // connect client to local server at port 3000
   //socket = io.connect('http://localhost:3000');
   socket.on("mouse", newDrawing);
