@@ -3,21 +3,20 @@ let x, y, px, py;
 
 function setup() {
   createCanvas(500, 500);
-  refreshSession();
+  background(0);
+  colorMode(HSB);
+  
+  // connect client to local server at port 3000
+  //socket = io.connect('http://localhost:3000');
+  socket.on("mouse", newDrawing);
+
   var button = createButton('refresh session');
   button.position(220, 500);
   button.mousePressed(refreshSession); 
 }
 
-function refreshSession(){
-  background(0);
-  colorMode(HSB);
-  //socket.emit('disconnect');
-  //socket.close();
-  //TODO
-  // connect client to local server at port 3000
-  //socket = io.connect('http://localhost:3000');
-  socket.on("mouse", newDrawing);
+function refreshSession() {
+  socket.emit("close", close);
 }
 
 function newDrawing(data) {

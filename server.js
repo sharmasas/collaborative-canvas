@@ -31,3 +31,8 @@ function newConnection(socket) {
   }
 }
 
+io.sockets.on("close", closeApp);
+
+function closeApp(){
+  socket.close();
+}
