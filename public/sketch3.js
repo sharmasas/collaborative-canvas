@@ -8,6 +8,14 @@ function setup() {
 
   // connect client to local server at port 3000
   //socket = io.connect('http://localhost:3000');
+  
+  var button = createButton('refresh session');
+  button.position(250, 250);
+  button.mousePressed(refreshSession); 
+}
+
+function refreshSession(){
+  socket.off("mouse", newDrawing);
   socket.on("mouse", newDrawing);
 }
 

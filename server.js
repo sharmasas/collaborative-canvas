@@ -27,7 +27,7 @@ function newConnection(socket) {
     //returns to specific socket
     socket.broadcast.emit("mouse", data);
     //returns to all sockets including your own
-    // io.sockets.emit('mouse', data);
+    //io.sockets.emit('mouse', data);
     console.log(data);
   }
 }
