@@ -16,7 +16,15 @@ function setup() {
 }
 
 function refreshSession() {
-  socket.emit("close", close);
+  background(0);
+  var refreshdata = {
+    background: 0
+  };
+  socket.emit("refresh", refreshdata);
+}
+
+function wipe(refreshdata) {
+  background(refreshdata.background);
 }
 
 function newDrawing(data) {

@@ -12,6 +12,7 @@ console.log("server is running");
 
 // require socket.io
 var socket = require("socket.io");
+
 // calling function socket with variable server
 var io = socket(server);
 
@@ -29,10 +30,4 @@ function newConnection(socket) {
     //io.sockets.emit('mouse', data);
     console.log(data);
   }
-}
-
-io.sockets.on("close", closeApp);
-
-function closeApp(){
-  socket.close();
 }
