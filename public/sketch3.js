@@ -4,18 +4,17 @@ let x, y, px, py;
 function setup() {
   createCanvas(500, 500);
   background(0);
-  colorMode(HSB);
-
-  // connect client to local server at port 3000
-  //socket = io.connect('http://localhost:3000');
-  
+  refreshSession();
   var button = createButton('refresh session');
-  button.position(250, 250);
+  button.position(250, 0);
   button.mousePressed(refreshSession); 
 }
 
 function refreshSession(){
-  socket.off("mouse", newDrawing);
+  background(0);
+  colorMode(HSB);
+  // connect client to local server at port 3000
+  //socket = io.connect('http://localhost:3000');
   socket.on("mouse", newDrawing);
 }
 
