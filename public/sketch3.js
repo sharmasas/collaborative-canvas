@@ -3,10 +3,9 @@ let x, y, px, py;
 
 function setup() {
   createCanvas(500, 500);
-  background(0);
   refreshSession();
   var button = createButton('refresh session');
-  button.position(250, 0);
+  button.position(220, 500);
   button.mousePressed(refreshSession); 
 }
 
@@ -44,7 +43,7 @@ function mouseDragged() {
 
 function draw() {
   stroke(frameCount % 360, 75, 100);
-  strokeWeight(3);
+  strokeWeight(5);
 
   x = mouseX;
   y = mouseY;
