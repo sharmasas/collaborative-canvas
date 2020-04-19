@@ -31,11 +31,9 @@ function newConnection(socket) {
   }
 }
 
-// event 2: if session has been terminated
-io.sockets.on("reset", terminate);
+// event 2: if socket is disconnected
+io.sockets.on('disconnect', reconnect);
 
-function terminate(socket) {
-  socket.close();
-  var io = socket(server);
-  io.sockets.on("connection", newConnection);
+function reconnect() {
+  socket.reconnect();
 }
