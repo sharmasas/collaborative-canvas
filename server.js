@@ -31,3 +31,10 @@ function newConnection(socket) {
     console.log(data);
   }
 }
+
+io.sockets.on("refresh", refreshSession);
+
+function refreshSession(refreshdata) {
+    socket.broadcast.emit("refresh", refreshdata);
+}
+
