@@ -12,7 +12,7 @@ h3 {
   transition: 0.3s;
   color: white;
   font-family: sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   margin-top: 12px;
   margin-bottom: 9px;
   font-weight: 300;
@@ -75,7 +75,7 @@ canvas:hover {
 .dropbtn {
   background-color: inherit;
   color:white;
-  font-size: 14px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
 }
@@ -111,13 +111,9 @@ canvas:hover {
   padding-top: 5px;
   padding-bottom:5px;
   padding-right: 10px;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   display: inline;
-}
-
-.show {
-    display:block;
 }
 
 h3 a
