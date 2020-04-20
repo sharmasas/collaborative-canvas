@@ -20,7 +20,11 @@ function setup() {
   button1.mousePressed(refreshSession); 
   
   var button2 = createButton('save image');
-  vu
+  button2.mousePressed(saveImage);
+}
+
+function saveImage() {
+  saveCanvas('myImage', 'jpg');
 }
 
 function refreshSession() {
