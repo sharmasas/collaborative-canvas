@@ -17,6 +17,7 @@ function setup() {
 
   // create a refresh button
   var button1 = createButton('refresh session');
+  //button1.rollover(colorMode(HSB, 255));
   button1.mousePressed(refreshSession); 
   
   var button2 = createButton('save image');
