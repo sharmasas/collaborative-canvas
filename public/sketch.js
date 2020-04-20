@@ -16,8 +16,11 @@ function setup() {
   socket.on("refresh", wipeCanvas);
 
   // create a refresh button
-  var button = createButton('refresh session');
-  button.mousePressed(refreshSession); 
+  var button1 = createButton('refresh session');
+  button1.mousePressed(refreshSession); 
+  
+  var button2 = createButton('save image');
+  vu
 }
 
 function refreshSession() {
