@@ -1,5 +1,4 @@
-html, body {
-  margin: 10px;
+body {
   padding: 10px;
   background: black;
 }
@@ -9,6 +8,8 @@ h3 {
   font-family: sans-serif;
   font-weight: 200;
   font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
 button {
