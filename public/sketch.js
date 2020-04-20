@@ -44,7 +44,7 @@ function wipeCanvas(refreshdata) {
 function newDrawing(data) {
   // newDrawing outputs the lines drawn by others in real time, via data emmitted
   stroke(frameCount % 360, 75, 100);
-  strokeWeight(3);
+  strokeWeight(6);
   
   // lines to be emmitted based on data shared
   line(data.x, data.y, data.px, data.py);

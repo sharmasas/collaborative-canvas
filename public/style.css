@@ -4,13 +4,20 @@ html, body {
   background: black;
 }
 
+h3 {
+  color: #ababab;
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+}
+
 button {
   background-color: transparent;
   color: #ababab;
   padding: 10px 15px;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 200;
   margin-top: 13px;
   margin-right: 10px;
