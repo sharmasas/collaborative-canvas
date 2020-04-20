@@ -4,7 +4,7 @@ let x, y, px, py;
 
 function setup() {
   //canvas setup
-  createCanvas(1000, 450);
+  createCanvas(1000, 430);
   background(0);
   colorMode(HSB);
   
