@@ -16,12 +16,9 @@ h3 {
 
 h3:hover {
   opacity: 1.0;
-  background:
-    -webkit-linear-gradient(
-      #FF6AD5, #8795E8
-    );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(to right, #ff8a00, #da1b60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 button {
@@ -45,8 +42,7 @@ button:hover {
   border-color:white;
   background-image:
     linear-gradient(
-      #FF6AD5, #8795E8
-    );
+       to right, #ff8a00, #da1b60);
 }
 
 button:focus {
@@ -59,9 +55,12 @@ canvas {
   margin-right: auto;
   border-style: solid;
   border-width: 1px;
+  opacity: 0.9;
+  transition: 0.3s;
   border-color: #ababab;
 }
 
 canvas:hover {
+  opacity: 1.0;
   border-color: white;
 }
