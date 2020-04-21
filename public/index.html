@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Collaborative Drawing</title>
-  
-  <link rel="stylesheet" type="text/css" href="style.css">
-  
-  <script src="libraries/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-  <script src="dropdown.js"></script>
+    <title>Collaborative Drawing</title>
 
-  
-</head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-<body>
-   
-    <h3><a href="">
+    <script src="libraries/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="dropdown.js"></script>
+  </head>
+
+  <body>
+    <h2>
+      <a href="index.html">
         collaborative canvas
-      </a></h3>
-      <div class="dropdown">
-        <div onclick="dropdownToggle()" class="dropbtn">select new canvas +</div>
-        <div id="ProjectDropdown" class="dropdown-content">
-          <a href="rainbow-draw">rainbow draw</a>
-          <a href="">computer vision (coming soon!)</a>
-        </div>
-      </div>  
-  
-</body>
-
+      </a>
+    </h2>
+    <button>
+      <a href="rainbow-draw.html">Try it out</a>
+    </button>  
+  </body>
 </html>
