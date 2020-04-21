@@ -13,27 +13,41 @@
     <script src="dropdown.js"></script>
   
     <style>
+      
       body {
         display: block;
+        text-align: center;
       }
       h2 {
-        text-align: center;
-        padding-top: 275px;
+        padding-top: 250px;
+        padding-bottom: 50px;
       }
       button {
-
+        margin: 0;
+      }
+      p a {
+        font-size: 14px;
+        text-decoration: none;
+        opacity: 0.6;
+        transition: 0.3;
       }
     </style>
   </head>
-
+  
   <body>
+    <video autoplay muted loop id="myVideo">
+      <source src="rain.mp4" type="video/mp4">
+    </video>
     <h2>
       <a href="index.html">
         collaborative canvas
       </a>
     </h2>
     <button>
-      <a href="rainbow-draw.html">Try it out</a>
-    </button>  
+      <a href="rainbow-draw.html">Launch</a>
+    </button> 
+    <p>
+      <a href="">About</a>
+    </p>
   </body>
 </html>
