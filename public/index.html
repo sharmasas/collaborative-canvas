@@ -33,12 +33,19 @@
         opacity: 0.8;
       }
       
-      button {
+      .index-btn {
         margin: 0;
         opacity: 0.8;
       }
       
-      a
+      .index-btn:hover {
+        opacity: 1.0;
+        color:white;
+        border-color:white;
+        background-image:
+          linear-gradient(
+             to right, #ff8a00, #da1b60);
+      }
       
       p a {
         font-size: 14px;
@@ -71,9 +78,7 @@
           collaborative canvas
         </a>
       </h2>
-      <a href="rainbow-draw.html"><button>
-        Launch
-      </button></a> 
+      <a class="index-btn" href="rainbow-draw.html">Launch</a> 
       <p>
         <a href="">About</a>
       </p>
