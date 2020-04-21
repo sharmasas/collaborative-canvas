@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Collaborative Drawing</title>
+    <title>Collaborative Canvas</title>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
 
@@ -17,11 +17,10 @@
       body {
         display: block;
         text-align: center;
-        position: fixed;
-        bottom: 0;
+        position: absolute;
       }
       h2 {
-        padding-bottom: 50px;
+        padding-bottom: 30px;
       }
       button {
         margin: 0;
@@ -35,12 +34,12 @@
       #myVideo {
         right: 0;
         bottom: 0;
-        height: 8vh;
+        height: 60vh;
         width: 100%;
-        *overflow: hidden;*/
-        *object-fit: cover;*/
+        overflow: hidden;
+        object-fit: cover;
         z-index: -99;
-        *position: relative;*/
+        position: relative;
       }
       
       #myVideo::before {
