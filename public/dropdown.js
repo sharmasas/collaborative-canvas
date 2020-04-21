@@ -17,3 +17,9 @@ window.onclick = function(event) {
     }
   }
 }
+
+
+
+function onLoad(element) {
+  $(element).addClass('loaded');
+}
