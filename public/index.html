@@ -17,36 +17,44 @@
       body {
         display: block;
         text-align: center;
-        position: absolute;
       }
+      
+      .content {
+        position: fixed;
+        bottom: 150px;
+        width: 100%;
+      }
+      
       h2 {
         padding-bottom: 30px;
       }
+      
+      h2 a {
+        opacity: 0.9;
+      }
+      
       button {
         margin: 0;
+        opacity: 0.9;
       }
+      
       p a {
         font-size: 14px;
         text-decoration: none;
-        opacity: 0.6;
-        transition: 0.3;
+        opacity: 0.9;
+        transition: 0.3; 
       }
       
       #myVideo {
         right: 0;
         bottom: 0;
-        height: 0;
         width: 100%;
+        min-height: 60vh;
         overflow: hidden;
         object-fit: cover;
         z-index: -99;
         position: relative;
-        opacity: 0.7;
-        transition: height 0.66s ease-out;
-      }
-      
-      #myVideo.loaded {
-        height: 60vh;
+        opacity: 0.5;
       }
 
     </style>
@@ -54,16 +62,19 @@
   
   <body>
     <video autoplay muted loop id="myVideo" width="800" height="600" name="Video Name" src="https://cdn.glitch.com/83ca1fc1-fa05-43cd-9f17-18522a86672b%2Frainbow.mov?v=1587431266673"></video>
-    <h2>
-      <a href="index.html">
-        collaborative canvas
-      </a>
-    </h2>
-    <button>
-      <a href="rainbow-draw.html">Launch</a>
-    </button> 
-    <p>
-      <a href="">About</a>
-    </p>
+    
+    <div class="content">
+      <h2>
+        <a href="index.html">
+          collaborative canvas
+        </a>
+      </h2>
+      <button>
+        <a href="rainbow-draw.html">Launch</a>
+      </button> 
+      <p>
+        <a href="">About</a>
+      </p>
+    </div>
   </body>
 </html>
