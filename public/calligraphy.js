@@ -13,8 +13,10 @@ function setup() {
   diff = size/8;
   x = y = ax = ay = a = r = f = 0;
 
-  // connect client to local server at port 3000
-  //socket = io.connect('http://localhost:3000');
+  //refreshSession if new session started/refresh page pressed
+  refreshSession();
+  
+  // socket is listening for two events: new drawing and clear canvas
   socket.on("mouse", newDrawing);
   socket.on("refresh", wipeCanvas);
 
@@ -49,9 +51,6 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   
-  data.oldR += ( data.r - data.oldR ) / distance;
-  if(data.oldR < 1) data.oldR = 1;
-  
   strokeWeight( data.oldR+diff );
   line( data.x, data.y, data.oldX, data.oldY );
 
@@ -76,6 +75,7 @@ function draw() {
      x = mX;
      y = mY;
    }
+    
     ax += ( mX - x ) * spring;
     ay += ( mY - y ) * spring;
     ax *= friction;
@@ -93,16 +93,14 @@ function draw() {
       
       oldR += ( r - oldR ) / distance;
       if(oldR < 1) oldR = 1;
-    
       
-      // code that draws
       strokeWeight( oldR+diff );
-      line( x, y, oldX, oldY );
       
+      line( x, y, oldX, oldY );
       strokeWeight( oldR );
+      
       line( x+diff*2, y+diff*2, oldX+diff*2, oldY+diff*2 );
       line( x-diff, y-diff, oldX-diff, oldY-diff );
-      
 			stroke(255);
     
     }
@@ -110,7 +108,6 @@ function draw() {
   var data = {
     x: x,
     y: y,
-    r: r,
     oldX: oldX,
     oldY: oldY,
     oldR: oldR
