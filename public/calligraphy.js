@@ -49,37 +49,26 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   
-  strokeWeight( oldR+diff );
-  line( x, y, oldX, oldY );
+  data.oldR += ( data.r - data.oldR ) / distance;
+  if(data.oldR < 1) data.oldR = 1;
+  
+  strokeWeight( data.oldR+diff );
+  line( data.x, data.y, data.oldX, data.oldY );
 
-  strokeWeight( oldR );
-  line( x+diff*2, y+diff*2, oldX+diff*2, oldY+diff*2 );
-  line( x-diff, y-diff, oldX-diff, oldY-diff );
+  strokeWeight( data.oldR );
+  line( data.x+diff*2, data.y+diff*2, data.oldX+diff*2, data.oldY+diff*2 );
+  line( data.x-diff, data.y-diff, data.oldX-diff, data.oldY-diff );
 
   stroke(255);
-  
-  //line(data.x, data.y, data.px, data.py);
-  //line(width - data.x, data.y, width - data.px, data.py);
-  //line(data.x, height - data.y, data.px, height - data.py);
-  //line(width - data.x, height - data.y, width - data.px, height - data.py);
 }
 
 function draw() {
   // take out to remove symetry 
   mX = mouseX;
   mY = mouseY;
-  px = pmouseX;
-  py = pmouseY;
 	
   oldR = r;
   if(mouseIsPressed) {
-		
-		// following 4 lines added for symetry (take out for no symetry)
-		//line(x, y, px, py);
-    //line(width - x, y, width - px, py);
-    //line(x, height - y, px, height - py);
-    //line(width - x, height - y, width - px, height - py);
-    
     
     // don't take out 
     if(!f) {
@@ -115,7 +104,20 @@ function draw() {
       line( x-diff, y-diff, oldX-diff, oldY-diff );
       
 			stroke(255);
+    
     }
+  
+  var data = {
+    x: x,
+    y: y,
+    r: r,
+    oldX: oldX,
+    oldY: oldY,
+    oldR: oldR
+  };
+  
+  socket.emit("mouse", data); 
+    
   } else if(f) {
     ax = ay = f = 0;
   }
