@@ -46,7 +46,7 @@ function wipeCanvas(refreshdata) {
 function newDrawing(data) {
   // newDrawing outputs the lines drawn by others in real time, via data emmitted
   stroke(frameCount % 360, 75, 100);
-  strokeWeight(6);
+  strokeWeight(10);
   
   // lines to be emmitted based on data shared
   line(data.x, data.y, data.px, data.py);
@@ -80,5 +80,5 @@ function mouseDragged() {
 function draw() {
   // framecount is only a property of draw
   stroke(frameCount % 360, 75, 100);
-  strokeWeight(6);
+  strokeWeight(10);
 }

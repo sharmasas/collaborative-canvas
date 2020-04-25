@@ -49,12 +49,12 @@ function wipeCanvas(refreshdata) {
 
 
 function newDrawing(data) {
-  stroke(frameCount % 360, 75, 100);
+  //stroke(frameCount % 360, 75, 100);
   strokeWeight(3);
   line(data.x, data.y, data.px, data.py);
-  line(width - data.x, data.y, width - data.px, data.py);
-  line(data.x, height - data.y, data.px, height - data.py);
-  line(width - data.x, height - data.y, width - data.px, height - data.py);
+  //line(width - data.x, data.y, width - data.px, data.py);
+  //line(data.x, height - data.y, data.px, height - data.py);
+  //line(width - data.x, height - data.y, width - data.px, height - data.py);
 }
 
 
@@ -62,8 +62,8 @@ function draw() {
 
 	mX = mouseX;
   mY = mouseY;
-  px = pmouseX;
-  py = pmouseY;
+  //px = pmouseX;
+  //py = pmouseY;
 	
   oldR = r;
   if(mouseIsPressed) {
@@ -71,15 +71,17 @@ function draw() {
     // mY = mouseY;
 		
 		// following 4 lines added for symetry 
-		line(x, y, px, py);
-    line(width - x, y, width - px, py);
-    line(x, height - y, px, height - py);
-    line(width - x, height - y, width - px, height - py);
+		//line(x, y, px, py);
+    //line(width - x, y, width - px, py);
+    //line(x, height - y, px, height - py);
+    //line(width - x, height - y, width - px, height - py);
+    
     if(!f) {
      f = 1;
      x = mX;
-     y = mY;
-   }
+    y = mY;
+    }
+    
     ax += ( mX - x ) * spring;
     ay += ( mY - y ) * spring;
     ax *= friction;
