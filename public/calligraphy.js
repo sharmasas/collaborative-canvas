@@ -50,7 +50,7 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   //strokeWeight(3);
-  //line(data.x, data.y, data.px, data.py);
+  line(data.x, data.y, data.px, data.py);
   
   oldR = data.r;
   if(mouseIsPressed) {
@@ -105,7 +105,7 @@ function draw() {
     // mY = mouseY;
 		
 		// following 4 lines added for symetry 
-		line(x, y, px, py);
+		line(mx, my, px, py);
     //line(width - x, y, width - px, py);
     //line(x, height - y, px, height - py);
     //line(width - x, height - y, width - px, height - py);
