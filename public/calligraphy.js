@@ -51,6 +51,8 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   
+  //TODO: figure out how to communicate thickness (related to r and oldR)
+  
   strokeWeight( data.oldR+diff );
   line( data.x, data.y, data.oldX, data.oldY );
 
@@ -65,8 +67,8 @@ function draw() {
   // take out to remove symetry 
   mX = mouseX;
   mY = mouseY;
-	
   oldR = r;
+  
   if(mouseIsPressed) {
     
     // don't take out 
@@ -95,7 +97,6 @@ function draw() {
       if(oldR < 1) oldR = 1;
       
       strokeWeight( oldR+diff );
-      
       line( x, y, oldX, oldY );
       strokeWeight( oldR );
       
@@ -108,6 +109,7 @@ function draw() {
   var data = {
     x: x,
     y: y,
+    r: r,
     oldX: oldX,
     oldY: oldY,
     oldR: oldR
