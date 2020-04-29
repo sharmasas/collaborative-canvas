@@ -53,10 +53,13 @@ function newDrawing(data) {
   
   //TODO: figure out how to communicate thickness (related to r and oldR)
   
-  strokeWeight( data.oldR+diff );
+  oldR += ( data.r - data.oldR ) / distance;
+  if(oldR < 1) oldR = 1;
+  
+  strokeWeight( oldR + diff );
   line( data.x, data.y, data.oldX, data.oldY );
 
-  strokeWeight( data.oldR );
+  strokeWeight( oldR );
   line( data.x+diff*2, data.y+diff*2, data.oldX+diff*2, data.oldY+diff*2 );
   line( data.x-diff, data.y-diff, data.oldX-diff, data.oldY-diff );
 
@@ -106,14 +109,24 @@ function draw() {
     
     }
   
+  // var data = {
+  //   x: x,
+  //   y: y,
+  //   r: r,
+  //   oldX: oldX,
+  //   oldY: oldY,
+  //   oldR: oldR
+  // };
+    
   var data = {
     x: x,
     y: y,
-    r: r,
-    oldX: oldX,
-    oldY: oldY,
-    oldR: oldR
-  };
+    mx: mX,
+    my: mY,
+    ax: ax,
+    ay: ay,
+    a: a
+  };  
   
   socket.emit("mouse", data); 
     
