@@ -9,7 +9,7 @@ function setup() {
   distance = 10;
   spring = 0.5;
   friction = 0.5;
-  size = 20;
+  size = 10;
   diff = size/8;
   x = y = ax = ay = a = r = f = 0;
 
