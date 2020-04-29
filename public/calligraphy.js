@@ -109,24 +109,24 @@ function draw() {
     
     }
   
-  // var data = {
-  //   x: x,
-  //   y: y,
-  //   r: r,
-  //   oldX: oldX,
-  //   oldY: oldY,
-  //   oldR: oldR
-  // };
-    
   var data = {
     x: x,
     y: y,
-    mx: mX,
-    my: mY,
-    ax: ax,
-    ay: ay,
-    a: a
-  };  
+    r: r,
+    oldX: oldX,
+    oldY: oldY,
+    oldR: oldR
+  };
+    
+  // var data = {
+  //   x: x,
+  //   y: y,
+  //   mx: mX,
+  //   my: mY,
+  //   ax: ax,
+  //   ay: ay,
+  //   a: a
+  // };  
   
   socket.emit("mouse", data); 
     
