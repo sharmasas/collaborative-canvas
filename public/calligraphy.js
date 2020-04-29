@@ -106,33 +106,36 @@ function draw() {
       line( x+diff*2, y+diff*2, oldX+diff*2, oldY+diff*2 );
       line( x-diff, y-diff, oldX-diff, oldY-diff );
 			stroke(255);
+      
+      
+        var data = {
+        x: x,
+        y: y,
+        r: r,
+        oldX: oldX,
+        oldY: oldY,
+        oldR: oldR
+      };
+
+      // var data = {
+      //   x: x,
+      //   y: y,
+      //   mx: mX,
+      //   my: mY,
+      //   ax: ax,
+      //   ay: ay,
+      //   a: a
+      // };  
+
+      socket.emit("mouse", data);
     
-    }
-  
-  var data = {
-    x: x,
-    y: y,
-    r: r,
-    oldX: oldX,
-    oldY: oldY,
-    oldR: oldR
-  };
-    
-  // var data = {
-  //   x: x,
-  //   y: y,
-  //   mx: mX,
-  //   my: mY,
-  //   ax: ax,
-  //   ay: ay,
-  //   a: a
-  // };  
-  
-  socket.emit("mouse", data); 
+    } 
     
   } else if(f) {
     ax = ay = f = 0;
   }
+
+  
 }
 
 
