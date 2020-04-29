@@ -9,7 +9,7 @@ function setup() {
   distance = 10;
   spring = 0.5;
   friction = 0.5;
-  size = 10;
+  size = 13;
   diff = size/8;
   x = y = ax = ay = a = r = f = 0;
 
@@ -116,17 +116,7 @@ function draw() {
         oldY: oldY,
         oldR: oldR
       };
-
-      // var data = {
-      //   x: x,
-      //   y: y,
-      //   mx: mX,
-      //   my: mY,
-      //   ax: ax,
-      //   ay: ay,
-      //   a: a
-      // };  
-
+ 
       socket.emit("mouse", data);
     
     } 
