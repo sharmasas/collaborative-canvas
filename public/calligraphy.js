@@ -19,8 +19,8 @@ function setup() {
   button2.mousePressed(saveImage);
   
   // set up canvas: ASK JOSE ABOUT THIS
-  createCanvas(windowWidth, windowHeight-140);
-  //createCanvas(1000,500);
+  //createCanvas(windowWidth, windowHeight-140);
+  createCanvas(1000,500);
 	background(0);
   distance = 10;
   spring = 0.5;
@@ -33,10 +33,10 @@ function setup() {
   refreshSession();  
 }
 
-//ASK JOSE ABOUT THIS
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight-140, true);
-}
+// //ASK JOSE ABOUT THIS
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight-140, true);
+// }
 
 function saveImage() {
   saveCanvas('myImage', 'png');
