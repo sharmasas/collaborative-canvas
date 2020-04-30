@@ -16,8 +16,9 @@ function setup() {
   //button2.position(0,0);
   button2.mousePressed(saveImage);
   
-  //canvas setup
-  createCanvas(1000, 500);
+  // set up canvas: ASK JOSE ABOUT THIS
+  //createCanvas(windowWidth, windowHeight-140, noRedraw = "TRUE");
+  createCanvas(1000,500);
   background(0);
   colorMode(HSB);
   
@@ -28,6 +29,11 @@ function setup() {
 function saveImage() {
   saveCanvas('myImage', 'png');
 }
+
+// ASK JOSE ABOUT THIS
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight-140, noRedraw = "TRUE");
+// }
 
 function refreshSession() {
   // refresh function emits data to server to reset canvas
