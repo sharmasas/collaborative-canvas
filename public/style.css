@@ -92,6 +92,7 @@ button:focus {
 
 canvas {
   width: 100% !important;
+  height: 80vh;
   display: block;
   margin-left: auto;
   margin-right: auto;
