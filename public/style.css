@@ -25,9 +25,7 @@ h2 a {
 }
 
 h3 {
-  opacity: 0.7;
-  transition: 0.3s;
-  color: white;
+  color: #aaa;
   font-family: sans-serif;
   font-size: 22px;
   margin-top: 20px;
@@ -36,7 +34,14 @@ h3 {
   font-weight: 300;
 }
 
-h3:hover {
+h3 a
+{
+  opacity: 0.7;
+  transition: 0.3s;  
+  text-decoration: none;
+}
+
+h3 a:hover {
   opacity: 1.0;
   background: linear-gradient(to right, #ff8a00, #da1b60);
     -webkit-background-clip: text;
@@ -152,15 +157,10 @@ canvas:hover {
   background: black;
 }
 
-h3 a
-{
-    text-decoration: none;
-}
-
 a
 {
     color:white;
-    z-index:4;
+    z-index:100;
 }
 
 a:hover
