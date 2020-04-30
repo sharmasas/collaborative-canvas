@@ -4,6 +4,8 @@ body {
   color: white;
   font-family: sans-serif;
   font-weight: 300;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 h2 a {
@@ -43,11 +45,12 @@ button {
   color: white;
   padding: 10px 15px;
   text-decoration: none;
+  position: right;
   font-size: 14px;
   font-weight: 200;
-  margin-top: 13px;
-  margin-right: 10px;
+  margin-left: 10px;
   border-color: white;
+  float: right;
 }
 
 button a {
@@ -98,7 +101,7 @@ canvas:hover {
 .dropbtn {
   background-color: inherit;
   color:white;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
   cursor: pointer;
 }

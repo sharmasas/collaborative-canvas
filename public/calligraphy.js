@@ -4,7 +4,22 @@
 var socket = io();
 
 function setup() {
-  createCanvas(1000,430);
+  
+  // socket is listening for two events: new drawing and clear canvas
+  socket.on("mouse", newDrawing);
+  socket.on("refresh", wipeCanvas);
+
+  // create a refresh button
+  var button1 = createButton('refresh');
+  //button1.position(0,0);
+  button1.mousePressed(refreshSession); 
+  
+  var button2 = createButton('save');
+  //button2.position(0,0);
+  button2.mousePressed(saveImage);
+  
+  // set up canvas
+  createCanvas(1000,500);
 	background(0);
   distance = 10;
   spring = 0.5;
@@ -14,20 +29,7 @@ function setup() {
   x = y = ax = ay = a = r = f = 0;
 
   //refreshSession if new session started/refresh page pressed
-  refreshSession();
-  
-  // socket is listening for two events: new drawing and clear canvas
-  socket.on("mouse", newDrawing);
-  socket.on("refresh", wipeCanvas);
-
-  // create a refresh button
-  var button1 = createButton('refresh session');
-  //button1.position(0,0);
-  button1.mousePressed(refreshSession); 
-  
-  var button2 = createButton('save image');
-  //button2.position(0,0);
-  button2.mousePressed(saveImage);
+  refreshSession();  
 }
 
 function saveImage() {

@@ -3,26 +3,26 @@ var socket = io();
 let x, y, px, py;
 
 function setup() {
-  //canvas setup
-  createCanvas(1000, 430);
-  background(0);
-  colorMode(HSB);
-  
-  //refreshSession if new session started/refresh page pressed
-  refreshSession();
-  
   // socket is listening for two events: new drawing and clear canvas
   socket.on("mouse", newDrawing);
   socket.on("refresh", wipeCanvas);
 
   // create a refresh button
-  var button1 = createButton('refresh session');
+  var button1 = createButton('refresh');
   //button1.position(0,0);
   button1.mousePressed(refreshSession); 
   
-  var button2 = createButton('save image');
+  var button2 = createButton('save');
   //button2.position(0,0);
   button2.mousePressed(saveImage);
+  
+  //canvas setup
+  createCanvas(1000, 500);
+  background(0);
+  colorMode(HSB);
+  
+  //refreshSession if new session started/refresh page pressed
+  refreshSession();
 }
 
 function saveImage() {
