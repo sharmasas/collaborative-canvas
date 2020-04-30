@@ -33,7 +33,7 @@ function setup() {
 }
 
 function saveImage() {
-  saveCanvas('myImage', 'jpg');
+  saveCanvas('myImage', 'png');
 }
 
 function refreshSession() {
