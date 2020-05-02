@@ -59,7 +59,7 @@ function newDrawing(data) {
   // assign r, g, b values from camera space 
   var r = video.pixels[data.index + 0];
   var g = video.pixels[data.index + 1];
-  var b = video.pixels[data.index + 2];
+  var b = video.pixels[data.index + 2] + 50;
 
   // draw pixel filled rectangles 
   fill(r, g, b, 127);
@@ -81,7 +81,7 @@ function mouseDragged() {
 
         var index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
-        var r = video.pixels[index + 0];
+        var r = video.pixels[index + 0] + 50;
         var g = video.pixels[index + 1];
         var b = video.pixels[index + 2];
 
