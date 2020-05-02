@@ -58,37 +58,35 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   
-  //filter(INVERT);
-  
   // assign r, g, b values from camera space 
-  var r = video.pixels[data.index + 0];
-  var g = video.pixels[data.index + 1];
-  var b = video.pixels[data.index + 2];
+  var r = (video.pixels[data.index + 0]);
+  var g = (video.pixels[data.index + 1]);
+  var b = (video.pixels[data.index + 2]);
 
   // draw pixel filled rectangles 
       if (r > 100 && g < 60 && b < 60) {
         
-        fill(r, g, b, 140);
+        fill(255 - r, 255 - g, 255 - b, 140);
         ellipse(data.x * vScale, data.y * vScale, vScale, vScale);
         
       } else if (r < 60 && g < 60 && b > 80) {
         
-        fill(r, g, b, 140);
+        fill(255 - r, 255 - g, 255 - b, 140);
         rect(data.x * vScale, data.y * vScale, vScale, vScale);
         
       } else if (r < 50 && g > 50 && b < 50) {
         
-        fill(r, g, b, 140);
+        fill(255 - r, 255 - g, 255 - b, 140);
         rect(data.x * vScale, data.y * vScale, vScale, vScale);
         
       } else if (r > 100 && g > 100 && b < 70) {
         
-        fill(r, g, b, 140);
+        fill(255 - r, 255- g, 255 - b, 140);
         rect(data.x * vScale, data.y * vScale, vScale, vScale);
         
       } else if (r > 150 && g < 60 && b > 150) {
         
-        fill(r, g, b, 140);
+        fill(255 - r, 255 - g, 255 - b, 140);
         rect(data.x * vScale, data.y * vScale, vScale, vScale);
       } 
   
