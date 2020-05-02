@@ -63,7 +63,7 @@ function newDrawing(data) {
 
   // draw pixel filled rectangles 
   fill(r, g, b, 127);
-  rect((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
+  ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
   
 }
 
@@ -76,8 +76,8 @@ function mouseDragged() {
       var pixelY = int(mouseY / vScale);
     
     
-    for ( var i = -10; i <= 10; i++) {
-      for ( var j = -10; j <= 10; j++) {
+    for ( var i = -20; i <= 20; i++) {
+      for ( var j = -20; j <= 20; j++) {
 
         var index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
@@ -86,7 +86,7 @@ function mouseDragged() {
         var b = video.pixels[index + 2];
 
         fill(r, g, b, 127);
-        rect((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
+        ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
 
         var data = {
 
