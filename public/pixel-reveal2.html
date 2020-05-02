@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collaborative Canvas</title>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  <script src="libraries/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+  <script src="dropdown.js"></script>
+  <script src="pixel.js"></script>
+  
+</head>
+
+<body>
+   
+  <div class="page-title">
+    <h3><a href="index.html">collaborative canvas</a></h3>
+    <h3> / </h3>
+    <h3><a href="#">pixel reveal</a></h3>
+  </div> 
+    <div class="dropdown">
+      <div onclick="dropdownToggle()" class="dropbtn">select new canvas +</div>
+      <div id="ProjectDropdown" class="dropdown-content">
+        <a href="calligraphy.html">calligraphy</a>
+        <a href="rainbow-draw.html">kaleidoscope</a>
+        <a href="pixel-reveal.html">pixel reveal</a>
+      </div>
+    </div>
+  
+</body>
+
+</html>
