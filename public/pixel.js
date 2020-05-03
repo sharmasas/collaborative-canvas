@@ -105,28 +105,28 @@ function mouseDragged() {
       
       if (r > 100 && g < 60 && b < 60) {
         
-        fill(255 - r, 255 - g, 255- b, 200);
+        fill( r, g, b, 200);
         ellipse(x * vScale, y * vScale, vScale, vScale);
         
         
       } else if (r < 60 && g < 60 && b > 80) {
         
-        fill(255- r, 255-g, 255-b, 200);
+        fill(r, g, b, 200);
         rect(x * vScale, y * vScale, vScale, vScale);
         
       } else if (r < 50 && g > 50 && b < 50) {
         
-        fill(255-r, 255-g, 255-b, 200);
+        fill(r, g, b, 200);
         rect(x * vScale, y * vScale, vScale, vScale);
         
       } else if (r > 100 && g > 100 && b < 70) {
         
-        fill(255-r, 255-g, 255-b, 200);
+        fill(r, g, b, 200);
         rect(x * vScale, y * vScale, vScale, vScale);
         
       } else if (r > 150 && g < 60 && b > 150) {
         
-        fill(255-r, 255-g, 255-b, 200);
+        fill(r, g, b, 200);
         rect(x * vScale, y * vScale, vScale, vScale);
         
       } 
