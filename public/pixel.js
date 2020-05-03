@@ -26,8 +26,6 @@ function setup() {
   video.hide();
   background(0);
   noStroke();
-  blendMode(BLEND);
-  
   
   //refreshSession if new session started/refresh page pressed
   refreshSession();
@@ -59,84 +57,43 @@ function wipeCanvas(refreshdata) {
 function newDrawing(data) {
   
   // assign r, g, b values from camera space 
-  var r = (video.pixels[data.index + 0]);
-  var g = (video.pixels[data.index + 1]);
-  var b = (video.pixels[data.index + 2]);
+  var r = video.pixels[data.index + 0];
+  var g = video.pixels[data.index + 1];
+  var b = video.pixels[data.index + 2] + 50;
 
   // draw pixel filled rectangles 
-      if (r > 100 && g < 60 && b < 60) {
-        
-        fill(255 - r, 255 - g, 255 - b, 200);
-        ellipse(data.x * vScale, data.y * vScale, vScale, vScale);
-        
-      } else if (r < 60 && g < 60 && b > 80) {
-        
-        fill(255 - r, 255 - g, 255 - b, 200);
-        rect(data.x * vScale, data.y * vScale, vScale, vScale);
-        
-      } else if (r < 50 && g > 50 && b < 50) {
-        
-        fill(255 - r, 255 - g, 255 - b, 200);
-        rect(data.x * vScale, data.y * vScale, vScale, vScale);
-        
-      } else if (r > 100 && g > 100 && b < 70) {
-        
-        fill(255 - r, 255- g, 255 - b, 200);
-        rect(data.x * vScale, data.y * vScale, vScale, vScale);
-        
-      } else if (r > 150 && g < 60 && b > 150) {
-        
-        fill(255 - r, 255 - g, 255 - b, 200);
-        rect(data.x * vScale, data.y * vScale, vScale, vScale);
-      } 
+  fill(r, g, b, 127);
+  ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
   
 }
 
 function mouseDragged() {
 
-   var index, r, g, b, x, y;
-  
-    for (var y = 0; y < video.height; y++) {
-      for (var x = 0; x < video.width; x++) {
-        index = (video.width - x + 1 + (y * video.width)) * 4;
-        r = video.pixels[index + 0];
-        g = video.pixels[index + 1];
-        b = video.pixels[index + 2];
-      
-      if (r > 100 && g < 60 && b < 60) {
-        
-        fill(r, g, b, 200);
-        ellipse(x * vScale, y * vScale, vScale, vScale);
-        
-        
-      } else if (r < 60 && g < 60 && b > 80) {
-        
-        fill(r, g, b, 200);
-        rect(x * vScale, y * vScale, vScale, vScale);
-        
-      } else if (r < 50 && g > 50 && b < 50) {
-        
-        fill(r, g, b, 200);
-        rect(x * vScale, y * vScale, vScale, vScale);
-        
-      } else if (r > 100 && g > 100 && b < 70) {
-        
-        fill(r, g, b, 200);
-        rect(x * vScale, y * vScale, vScale, vScale);
-        
-      } else if (r > 150 && g < 60 && b > 150) {
-        
-        fill(r, g, b, 200);
-        rect(x * vScale, y * vScale, vScale, vScale);
-        
-      } 
-    }
-  }
+
+  if (mouseIsPressed == true) {
+    
+      var pixelX = int(mouseX / vScale);
+      var pixelY = int(mouseY / vScale);
+    
+    
+    for ( var i = -20; i <= 20; i++) {
+      for ( var j = -20; j <= 20; j++) {
+
+        var index = (pixelX + i + (pixelY + j) * video.width) * 4;
+
+        var r = video.pixels[index + 0] + 50;
+        var g = video.pixels[index + 1];
+        var b = video.pixels[index + 2];
+
+        fill(r, g, b, 127);
+        ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
 
         var data = {
 
-          x : x,
-          y : y,
+          i : i,
+          j : j,
+          pixelX : pixelX,
+          pixelY : pixelY, 
           index : index,
           r : r,
           g : g,
@@ -146,14 +103,16 @@ function mouseDragged() {
         }
 
         socket.emit("mouse", data);
-  } 
 
+      }
+    }
+  } 
+}
 
 
 
 function draw() {
 	video.loadPixels();
-  loadPixels();
   mouseDragged();
   
 }
