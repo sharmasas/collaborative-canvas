@@ -71,7 +71,7 @@ function newDrawing(data) {
   line( data.x+diff*2, data.y+diff*2, data.oldX+diff*2, data.oldY+diff*2 );
   line( data.x-diff, data.y-diff, data.oldX-diff, data.oldY-diff );
 
-  stroke(255);
+  stroke(255, 75, 100);
 }
 
 function draw() {
