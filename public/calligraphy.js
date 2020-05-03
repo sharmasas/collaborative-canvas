@@ -25,6 +25,8 @@ function setup() {
   distance = 10;
   spring = 0.5;
   friction = 0.5;
+  
+  // changed size from 13 to 10 
   size = 10;
   diff = size/8;
   x = y = ax = ay = a = r = f = 0;
@@ -71,6 +73,7 @@ function newDrawing(data) {
   line( data.x+diff*2, data.y+diff*2, data.oldX+diff*2, data.oldY+diff*2 );
   line( data.x-diff, data.y-diff, data.oldX-diff, data.oldY-diff );
 
+  //this is a change -> pink color
   stroke(200, 25, 65, 255);
 }
 
@@ -113,6 +116,8 @@ function draw() {
       
       line( x+diff*2, y+diff*2, oldX+diff*2, oldY+diff*2 );
       line( x-diff, y-diff, oldX-diff, oldY-diff );
+      
+      // this is a change -> teal color 
 			stroke(64, 224, 208);
       
       
