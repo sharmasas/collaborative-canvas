@@ -57,12 +57,12 @@ function wipeCanvas(refreshdata) {
 function newDrawing(data) {
   
   // assign r, g, b values from camera space 
-  var r = video.pixels[data.index + 0];
-  var g = video.pixels[data.index + 1];
-  var b = video.pixels[data.index + 2] + 50;
+  // var r = video.pixels[data.index + 0];
+  // var g = video.pixels[data.index + 1];
+  // var b = video.pixels[data.index + 2] + 50;
 
   // draw pixel filled rectangles 
-  fill(r, g, b, 127);
+  fill(data.r, data.g, data.b + 50, 127);
   ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
   
 }
