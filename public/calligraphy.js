@@ -25,7 +25,7 @@ function setup() {
   distance = 10;
   spring = 0.5;
   friction = 0.5;
-  size = 13;
+  size = 10;
   diff = size/8;
   x = y = ax = ay = a = r = f = 0;
 
@@ -71,7 +71,7 @@ function newDrawing(data) {
   line( data.x+diff*2, data.y+diff*2, data.oldX+diff*2, data.oldY+diff*2 );
   line( data.x-diff, data.y-diff, data.oldX-diff, data.oldY-diff );
 
-  stroke(255, 75, 100);
+  stroke(200, 25, 65, 255);
 }
 
 function draw() {
@@ -113,7 +113,7 @@ function draw() {
       
       line( x+diff*2, y+diff*2, oldX+diff*2, oldY+diff*2 );
       line( x-diff, y-diff, oldX-diff, oldY-diff );
-			stroke(255);
+			stroke(64, 224, 208);
       
       
         var data = {
