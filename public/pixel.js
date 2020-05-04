@@ -26,6 +26,7 @@ function setup() {
   video.hide();
   background(0);
   noStroke();
+
   
   //refreshSession if new session started/refresh page pressed
   refreshSession();
@@ -56,19 +57,20 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   
-  //assign r, g, b values from camera space 
-  var r = video.pixels[data.index + 0];
-  var g = video.pixels[data.index + 1];
-  var b = video.pixels[data.index + 2] + 50;
+  // //assign r, g, b values from camera space 
+  // var r = video.pixels[data.index + 0];
+  // var g = video.pixels[data.index + 1];
+  // var b = video.pixels[data.index + 2] + 50;
 
   // draw pixel filled rectangles 
-  fill(r, g, b, 127);
+  fill(data.r, data.g, data.b + 50, 127);
   ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
+
   
 }
 
 function mousePressed() {
-  
+
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);
    
@@ -84,6 +86,7 @@ function mousePressed() {
 
         fill(r, g, b, 127);
         ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
+
         
             var data = {
 
@@ -109,6 +112,7 @@ function mousePressed() {
 
 
 function draw() {
-  video.loadPixels();
+  
+   video.loadPixels();
   
 }
