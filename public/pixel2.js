@@ -56,23 +56,28 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   
-  // assign r, g, b values from camera space 
-  // var r = video.pixels[data.index + 0];
-  // var g = video.pixels[data.index + 1];
-  // var b = video.pixels[data.index + 2] + 50;
+  video.loadPixels();
+      
+    for ( var i = -20; i <= 20; i++) {
+      for ( var j = -20; j <= 20; j++) {
 
-  // draw pixel filled rectangles 
-  fill(data.r, data.g, data.b + 50, 127);
-  ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
-  
+        var index = (data.pixelX + i + (data.pixelY + j) * video.width) * 4;
+
+        var r = video.pixels[index + 0] + 50;
+        var g = video.pixels[index + 1];
+        var b = video.pixels[index + 2];
+
+        fill(r, g, b, 127);
+        ellipse((data.pixelX + i) * vScale, (data.pixelY + j) * vScale, vScale, vScale);
+      }
+    }
 }
 
 function mousePressed() {
   
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);
-   
-   
+      
     for ( var i = -20; i <= 20; i++) {
       for ( var j = -20; j <= 20; j++) {
 
@@ -109,6 +114,5 @@ function mousePressed() {
 
 
 function draw() {
-  video.loadPixels();
-  
+  video.loadPixels();  
 }
