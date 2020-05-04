@@ -72,6 +72,20 @@ function mouseDragged() {
   
 video.loadPixels();
   
+    var data = {
+
+    i : i,
+    j : j,
+    pixelX : pixelX,
+    pixelY : pixelY,
+    index : index,
+    r : r,
+    g : g,
+    b : b,
+    vScale : vScale
+
+    }
+  
   if (mouseIsPressed == true) {
     
       var pixelX = int(mouseX / vScale);
@@ -90,19 +104,7 @@ video.loadPixels();
         fill(r, g, b, 127);
         ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
 
-        var data = {
 
-          i : i,
-          j : j,
-          pixelX : pixelX,
-          pixelY : pixelY, 
-          index : index,
-          r : r,
-          g : g,
-          b : b,
-          vScale : vScale
-
-        }
 
         socket.emit("mouse", data);
 
