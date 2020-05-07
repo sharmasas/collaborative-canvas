@@ -61,20 +61,20 @@ function mousePressed() {
 
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);
-    let index, r, g, b;
+    let index, r, g, b, temp;
   
-    for ( var i = -13; i <= 13; i++) {
-      for ( var j = -13; j <= 13; j++) {
-
-        index = (pixelX + i + (pixelY + j) * video.width) * 4;
+    for ( var j = -13; j <= 13; j++) {
+      
+      temp = (pixelX + (pixelY + j) * video.width) * 4; 
+      
+      for ( var i = -13; i <= 13; i++) {
+        index = temp + 4 * i
+        //index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
         r = video.pixels[index + 0] + 50;
         g = video.pixels[index + 1];
         b = video.pixels[index + 2];
 
-        fill(r, g, b, 127);
-        ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
-        
         var data = {
           i : i,
           j : j,
@@ -86,6 +86,10 @@ function mousePressed() {
         }
 
         socket.emit("mouse", data);
+        
+        
+        fill(r, g, b, 127);
+        ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
 
     }
   } 
