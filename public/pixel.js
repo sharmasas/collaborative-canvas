@@ -75,15 +75,15 @@ function mousePressed() {
         fill(r, g, b, 127);
         ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
         
-            var data = {
-            i : i,
-            j : j,
-            pixelX : pixelX,
-            pixelY : pixelY,
-            r : r,
-            g : g,
-            b : b
-            }
+        var data = {
+          i : i,
+          j : j,
+          pixelX : pixelX,
+          pixelY : pixelY,
+          r : r,
+          g : g,
+          b : b
+        }
 
         socket.emit("mouse", data);
 
