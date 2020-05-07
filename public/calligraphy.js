@@ -27,7 +27,7 @@ function setup() {
   friction = 0.5;
   
   // changed size from 13 to 10 
-  size = 10;
+  size = 13;
   diff = size/8;
   x = y = ax = ay = a = r = f = 0;
 
