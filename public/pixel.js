@@ -2,6 +2,8 @@
 let socket = io();
 let video;
 let vScale = 2;
+let brushHeight = 15;
+let brushWidth = 15;
 
 function setup() {
   // socket is listening for two events: new drawing and clear canvas
@@ -53,7 +55,7 @@ function wipeCanvas(refreshdata) {
 function newDrawing(data) {
 
   // draw pixel filled rectangles 
-  fill(data.r, data.g, data.b + 50, 127);
+  fill(data.r, data.g, data.b + 50, 255);
   ellipse(data.ellipse_x, data.ellipse_y, vScale, vScale);
 }
 
@@ -63,14 +65,14 @@ function mousePressed() {
     var pixelY = int(mouseY / vScale);
     let index, r, g, b, temp, ellipse_x, ellipse_y, temp_index;
   
-    temp_index = (pixelX - 13 + (pixelY - 13) * video.width) * 4 
+    temp_index = (pixelX - brushWidth + (pixelY - brushHeight) * video.width) * 4; 
   
-    for ( var j = -13; j <= 13; j++) {
+    for ( var j = -brushWidth; j <= brushWidth; j++) {
       
       index = temp_index + j * video.width * 4
       
-      for ( var i = -13; i <= 13; i++) {
-        index = index + 4
+      for ( var i = -brushHeight; i <= brushHeight; i++) {
+        index = index + 4;
         //index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
         r = video.pixels[index + 0] + 50;
@@ -90,8 +92,7 @@ function mousePressed() {
 
         socket.emit("mouse", data);
         
-        
-        fill(r, g, b, 127);
+        fill(r, g, b, 255);
         ellipse(ellipse_x, ellipse_y, vScale, vScale);
 
     }
