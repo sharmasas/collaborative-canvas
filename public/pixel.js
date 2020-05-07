@@ -54,32 +54,35 @@ function newDrawing(data) {
 
   // draw pixel filled rectangles 
   fill(data.r, data.g, data.b + 50, 127);
-  ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
+  ellipse(data.ellipse_x, data.ellipse_y, vScale, vScale);
 }
 
 function mousePressed() {
 
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);
-    let index, r, g, b, temp;
+    let index, r, g, b, temp, ellipse_x, ellipse_y, temp_index;
+  
+    temp_index = (pixelX - 13 + (pixelY - 13) * video.width) * 4 
   
     for ( var j = -13; j <= 13; j++) {
       
-      temp = (pixelX + (pixelY + j) * video.width) * 4; 
+      index = temp_index + j * video.width * 4
       
       for ( var i = -13; i <= 13; i++) {
-        index = temp + 4 * i
+        index = index + 4
         //index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
         r = video.pixels[index + 0] + 50;
         g = video.pixels[index + 1];
         b = video.pixels[index + 2];
-
+        
+        ellipse_x = (pixelX + i) * vScale; 
+        ellipse_y = (pixelY + j) * vScale; 
+        
         var data = {
-          i : i,
-          j : j,
-          pixelX : pixelX,
-          pixelY : pixelY,
+          ellipse_x : ellipse_x,
+          ellipse_y : ellipse_y,
           r : r,
           g : g,
           b : b
@@ -89,7 +92,7 @@ function mousePressed() {
         
         
         fill(r, g, b, 127);
-        ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
+        ellipse(ellipse_x, ellipse_y, vScale, vScale);
 
     }
   } 
