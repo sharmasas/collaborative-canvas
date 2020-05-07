@@ -33,10 +33,10 @@ function setup() {
   refreshSession();
 }
 
+// save image function
 function saveImage() {
   saveCanvas('myImage', 'png');
 }
-
 
 function refreshSession() {
   // refresh function emits data to server to reset canvas
@@ -53,25 +53,33 @@ function wipeCanvas(refreshdata) {
 }
 
 function newDrawing(data) {
-
-  // draw pixel filled rectangles 
+  // draw pixel filled rectangles (ellipse_x and ellipse_y now predefined)
   fill(data.r, data.g, data.b + 50, 255);
   ellipse(data.ellipse_x, data.ellipse_y, vScale, vScale);
 }
 
+
+function draw() {
+   video.loadPixels();
+}
+
 function mousePressed() {
 
+    // defining variables outside loop
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);
     let index, r, g, b, temp, ellipse_x, ellipse_y, temp_index;
   
+    // precalculating index not related to counters i and j 
     temp_index = (pixelX - brushWidth + (pixelY - brushHeight) * video.width) * 4; 
   
     for ( var j = -brushWidth; j <= brushWidth; j++) {
       
-      index = temp_index + j * video.width * 4
+      // updating counter based on j
+      index = temp_index + j * video.width * 4;
       
       for ( var i = -brushHeight; i <= brushHeight; i++) {
+        
         index = index + 4;
         //index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
@@ -79,9 +87,11 @@ function mousePressed() {
         g = video.pixels[index + 1];
         b = video.pixels[index + 2];
         
+        // precalculating variables that go into ellipse function
         ellipse_x = (pixelX + i) * vScale; 
         ellipse_y = (pixelY + j) * vScale; 
         
+        // transmit data prior to rendering it on screen
         var data = {
           ellipse_x : ellipse_x,
           ellipse_y : ellipse_y,
@@ -99,16 +109,7 @@ function mousePressed() {
   } 
 }
 
-
-
-function draw() {
-  
-   video.loadPixels();
-  
-}
-
 /* DROPDOWN, used website as reference: https://www.w3schools.com/howto/howto_js_dropdown.asp */
-
 /*toggle dropdown*/
 function dropdownToggle() {
   document.getElementById("ProjectDropdown").classList.toggle("show");
