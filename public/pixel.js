@@ -27,7 +27,6 @@ function setup() {
   background(0);
   noStroke();
 
-  
   //refreshSession if new session started/refresh page pressed
   refreshSession();
 }
@@ -36,10 +35,6 @@ function saveImage() {
   saveCanvas('myImage', 'png');
 }
 
-// ASK JOSE ABOUT THIS
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight-140, noRedraw = "TRUE");
-// }
 
 function refreshSession() {
   // refresh function emits data to server to reset canvas
@@ -56,17 +51,10 @@ function wipeCanvas(refreshdata) {
 }
 
 function newDrawing(data) {
-  
-  // //assign r, g, b values from camera space 
-  // var r = video.pixels[data.index + 0];
-  // var g = video.pixels[data.index + 1];
-  // var b = video.pixels[data.index + 2] + 50;
 
   // draw pixel filled rectangles 
   fill(data.r, data.g, data.b + 50, 127);
   ellipse((data.pixelX + data.i) * vScale, (data.pixelY + data.j) * vScale, vScale, vScale);
-
-  
 }
 
 function mousePressed() {
@@ -74,9 +62,8 @@ function mousePressed() {
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);
    
-   
-    for ( var i = -20; i <= 20; i++) {
-      for ( var j = -20; j <= 20; j++) {
+    for ( var i = -13; i <= 13; i++) {
+      for ( var j = -13; j <= 13; j++) {
 
         var index = (pixelX + i + (pixelY + j) * video.width) * 4;
 
@@ -86,10 +73,8 @@ function mousePressed() {
 
         fill(r, g, b, 127);
         ellipse((pixelX + i) * vScale, (pixelY + j) * vScale, vScale, vScale);
-
         
             var data = {
-
             i : i,
             j : j,
             pixelX : pixelX,
@@ -99,9 +84,7 @@ function mousePressed() {
             g : g,
             b : b,
             vScale : vScale
-
             }
-
 
         socket.emit("mouse", data);
 
@@ -115,4 +98,24 @@ function draw() {
   
    video.loadPixels();
   
+}
+
+/* DROPDOWN, used website as reference: https://www.w3schools.com/howto/howto_js_dropdown.asp */
+
+/*toggle dropdown*/
+function dropdownToggle() {
+  document.getElementById("ProjectDropdown").classList.toggle("show");
+}
+
+/* close dropdown if user clicks outside*/
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
