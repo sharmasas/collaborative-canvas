@@ -54,7 +54,7 @@ function wipeCanvas(refreshdata) {
 
 function newDrawing(data) {
   // draw pixel filled rectangles (ellipse_x and ellipse_y now predefined)
-  fill(data.r, data.g, data.b + 50, 255);
+  fill(data.r, data.g, data.b + 50, 170);
   ellipse(data.ellipse_x, data.ellipse_y, vScale, vScale);
 }
 
@@ -102,7 +102,7 @@ function mousePressed() {
 
         socket.emit("mouse", data);
         
-        fill(r, g, b, 255);
+        fill(r, g, b, 170);
         ellipse(ellipse_x, ellipse_y, vScale, vScale);
 
     }
