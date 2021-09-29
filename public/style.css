@@ -51,15 +51,15 @@ h3 a:hover {
 button {
   opacity: 0.8;
   transition: 0.3s;
-  background-color: transparent;
+  background: transparent;
   color: white;
   padding: 8px 10px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 200;
   margin-left: 10px;
-  border-color: white;
   float: right;
+  border: 1px solid white;
 }
 
 button a {

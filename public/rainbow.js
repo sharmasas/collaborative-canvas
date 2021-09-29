@@ -53,7 +53,7 @@ function newDrawing(data) {
   // newDrawing outputs the lines drawn by others in real time, via data emmitted
   // replace with frameCount to return to solid color
   stroke(random(255) % 360, 75, 100);
-  strokeWeight(10);
+  strokeWeight(6);
   
   // lines to be emmitted based on data shared
   line(data.x, data.y, data.px, data.py);
@@ -87,7 +87,7 @@ function mouseDragged() {
 function draw() {
   // framecount is only a property of draw
   stroke(frameCount % 360, 75, 100);
-  strokeWeight(10);
+  strokeWeight(6);
 }
 
 /* DROPDOWN, used website as reference: https://www.w3schools.com/howto/howto_js_dropdown.asp */
