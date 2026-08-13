@@ -1,5 +1,12 @@
 // variable definition (socket connection and data placeholders)
-let socket = io();
+// connect to the relay server: itself when running locally, otherwise the
+// deployed relay's domain (the static site and the relay live on different
+// origins now, unlike under Glitch where one server did both jobs)
+let socket = io(
+  location.hostname === "localhost" || location.hostname === "127.0.0.1"
+    ? "http://localhost:3000"
+    : "https://collaborative-canvas-douj.onrender.com"
+);
 let video;
 let vScale = 2;
 let brushHeight = 15;

@@ -2,7 +2,7 @@
 var express = require("express");
 var app = express();
 // listening on port set by app
-const port = process.env.PORT | 3000;
+const port = process.env.PORT || 3000;
 var server = app.listen(port);
 
 // hosting static files in public directory
@@ -14,7 +14,24 @@ console.log("server is running");
 var socket = require("socket.io");
 
 // calling function socket with variable server
-var io = socket(server);
+// origins controls which browser origins may connect (Socket.IO 2.x CORS option;
+// the public site and this relay now live on different domains, so this used to
+// be unnecessary under Glitch but is required now)
+var io = socket(server, {
+  origins: (origin, callback) => {
+    var allowed = [
+      "https://duodoodle.netlify.app",
+      "http://duodoodle.netlify.app", // in case Netlify ever serves over http
+      "http://localhost:8080",
+      "http://127.0.0.1:8080"
+    ];
+    if (!origin || allowed.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback("origin not allowed", false);
+    }
+  }
+});
 
 // event 1: if I have a new connection
 io.sockets.on("connection", newConnection);

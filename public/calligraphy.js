@@ -1,7 +1,14 @@
 // Original Code from: BUN
 // https://www.openprocessing.org/sketch/755877
 
-var socket = io();
+// connect to the relay server: itself when running locally, otherwise the
+// deployed relay's domain (the static site and the relay live on different
+// origins now, unlike under Glitch where one server did both jobs)
+var socket = io(
+  location.hostname === "localhost" || location.hostname === "127.0.0.1"
+    ? "http://localhost:3000"
+    : "https://collaborative-canvas-douj.onrender.com"
+);
 
 function setup() {
   
