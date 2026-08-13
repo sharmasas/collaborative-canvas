@@ -72,6 +72,11 @@ function draw() {
 
 function mousePressed() {
 
+    // webcam hasn't produced a frame yet — bail out rather than reading
+    // undefined pixel data (which becomes NaN, then null over the wire,
+    // and trips p5's "expected Number" warning in fill())
+    if (!video.pixels || video.pixels.length === 0) return;
+
     // defining variables outside loop
     var pixelX = int(mouseX / vScale);
     var pixelY = int(mouseY / vScale);

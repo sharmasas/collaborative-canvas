@@ -1,7 +1,7 @@
 {
-  "name": "experimentsnode",
+  "name": "collaborative canvas",
   "version": "1.0.0",
-  "description": "responsive environments example",
+  "description": "interactive browser based collaborative drawing program",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
