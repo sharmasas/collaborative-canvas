@@ -33,10 +33,14 @@
         transition: 0.3; 
       }
       
+      body {
+        overflow-x: hidden;
+      }
+
       #myVideo {
         right: 0;
         bottom: 0;
-        width: 103%;
+        width: 100%;
         min-height: 60vh;
         overflow: hidden;
         object-fit: cover;
@@ -49,7 +53,7 @@
   
   <body>
     
-    <video autoplay muted loop id="myVideo" width="800" height="600" name="Video Name" src="rainbow.mov"></video>
+    <video autoplay muted loop playsinline id="myVideo" width="800" height="600" name="Video Name" src="rainbow.mp4"></video>
     
     <div class="content">
       <h2>
